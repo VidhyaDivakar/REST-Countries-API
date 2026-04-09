@@ -1,6 +1,10 @@
+siteHeader {
+    background-color: beige;
+}
 body {
 background-color: beige;
 }
+
 
 body.light {
   background-color: white;
