@@ -1,12 +1,19 @@
-siteHeader {
-    background-color: beige;
+.siteHeader {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  background: white;
+  border-bottom: 1px solid #ddd;
 }
+
+
 body {
-background-color: beige;
+background:hsl(0, 0%, 99%)
 }
 
 
-body.light {
+
+/* body.light {
   background-color: white;
   color: black;
 }
@@ -14,4 +21,4 @@ body.light {
 body.dark {
   background-color: black;
   color: white;
-}
+} */
