@@ -1,24 +1,79 @@
 .siteHeader {
   display: flex;
+  justify-content: space-between;
+  /*just like justify text, this will push justify the conent in flex box */
   align-items: center;
   padding: 0px 20px;
-  background: white;
   border-bottom: 1px solid #ddd;
 }
 
-
-body {
-background:hsl(0, 0%, 99%)
+body.dark .siteHeader {
+  background: #111;
+  border-bottom: 1px solid #333;
+  color: white;
 }
 
+i {
+  font-size: 18px;
+  color: inherit;
+  margin-left: auto;
+  align-items: right;
+}
 
+.darkMode {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-/* body.light {
-  background-color: white;
+.searchBox {
+  position: relative;
+  width: 250px;
+  margin: 40px;
+}
+
+.searchBox input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  /* space for icon */
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  /* transform: translateY(-50%); */
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.filter{
+  position: relative;
+  align-items: left;
+  width: 150px;
+  margin: 20px;
+  padding: 12px 12px 12px 20px;
+  /* space for icon */
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background: hsl(0, 0%, 99%);
   color: black;
+  transition: 0.3s
+    /* smooth transition from state to another */
 }
 
 body.dark {
   background-color: black;
   color: white;
-} */
+}

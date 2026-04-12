@@ -1,5 +1,6 @@
 
 
+
 const apiURL = "https://restcountries.com/v3.1/all?fields=name,capital,currencies"; // storing the API endpoint as a const variable
 
 export async function fetchAllCountries() {
