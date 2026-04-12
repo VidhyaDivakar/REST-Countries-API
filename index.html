@@ -6,7 +6,7 @@
     <title>REST API Countries</title>
     <h2> Where in the world?</h2>
     <div class="darkMode" id="toggleDark">
-        <i class="fa-regular fa-moon" id =toggleIcon></i>
+        <i class="fa-regular fa-moon" id=toggleIcon></i>
         <span id="toggleText">Dark Mode</span>
         <div>
             <link rel="stylesheet" href="./styles/styles.css">
@@ -19,26 +19,26 @@
 </header>
 
 <body>
-    <div class="searchBox">
-        <img src="./img/searchicon.svg" class="icon" />
-        <input type="text" placeholder="Search for a country.." />
+    <div class="topBar">
+        <div class="searchBox">
+            <img src="./img/searchicon.svg" class="icon" />
+            <input type="text" placeholder="Search for a country.." />
+        </div>
+        <div class="filter">
+            <select id="region" name="region">
+                <option value="" selected disabled>Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+                <option value="United States of America">USA</option>
+            </select>
+        </div>
     </div>
 
-    <div class="filter">
-        <div class="dropDown"> Filter by Region</div> 
-        <span>▼</span>
-    </div>
-        <select id="filterCountry">
-            <option value="Africa">Africa</option>
-            <option value="America">America</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Oceania">Oceania</option>
-            <option value="United States of America">USA</option>
-        </select>
-    </div>
 
-    </select>
+
 </body>
 
 

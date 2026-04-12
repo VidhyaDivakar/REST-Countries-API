@@ -27,16 +27,23 @@ i {
   gap: 8px;
 }
 
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
 .searchBox {
   position: relative;
-  width: 250px;
-  margin: 40px;
+  flex: 1;
+  max-width: 400px;
 }
 
 .searchBox input {
   width: 100%;
   padding: 12px 12px 12px 40px;
-  /* space for icon */
   border-radius: 5px;
   border: none;
   outline: none;
@@ -53,17 +60,20 @@ i {
   pointer-events: none;
 }
 
-.filter{
-  position: relative;
-  align-items: left;
+.filter {  
+  margin-left: auto;
   width: 150px;
-  margin: 20px;
-  padding: 12px 12px 12px 20px;
-  /* space for icon */
+  }
+
+#region {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
   border-radius: 5px;
   border: none;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 body {
