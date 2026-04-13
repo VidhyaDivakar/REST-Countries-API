@@ -10,6 +10,14 @@
   padding: 0px 20px;
   border-bottom: 1px solid #ddd;
 }
+.siteHeader,
+.topBar,
+.container
+.containerDetails {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 body.dark .siteHeader {
   background: #111;
@@ -118,6 +126,7 @@ body.dark {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 60px;
+   max-height: calc(100vh - 200px);
 
 }
 
