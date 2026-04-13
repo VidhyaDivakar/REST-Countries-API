@@ -69,6 +69,12 @@ function createCountryCard(country) {
     flagImg.src = flag;
     flagImg.alt = `${name} flag`;
 
+ flagImg.onerror = function() {
+        console.warn(`Failed to load flag for ${name}`);
+        this.src = 'https://via.placeholder.com/320x240?text=Flag+Not+Available';
+        this.alt = 'Flag not available';
+    };
+    
     flagDiv.appendChild(flagImg);
 
     const info = document.createElement("div");
