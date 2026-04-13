@@ -3,7 +3,7 @@ const countryName = params.get("name");
 
 if (!countryName) {
     console.error("No country name found in URL");
-      throw new Error("Country name is required");
+    throw new Error("Country name is required");
 }
 
 const singleURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
@@ -23,10 +23,10 @@ const counBorders = document.getElementById("borders");
 const counBackBtn = document.querySelector(".back-btn");
 
 
-if(counBackBtn){
-counBackBtn.addEventListener("click", () => {
-    window.history.back();
-});
+if (counBackBtn) {
+    counBackBtn.addEventListener("click", () => {
+        window.history.back();
+    });
 }
 
 async function fetchCountryDetails() {
@@ -65,7 +65,7 @@ function renderCountry(country) {
 
     counTld.textContent = country.tld ? country.tld.join(", ") : "N/A";
 
-    if (country.councurrencies) {
+    if (country.currencies) {
         const currencies = Object.values(country.currencies)
             .map(c => c.name)
             .join(", ");
@@ -81,36 +81,36 @@ function renderCountry(country) {
         counLanguages.textContent = "N/A";
     }
 
-    renderBorders(country.Borders);
+    renderBorders(country.borders);
 }
 
 async function renderBorders(borders) {
-  counBorders.innerHTML = "";
-if (!borders || borders.length === 0) {
-    counBorders.textContent = "None";
-    return;
-}
+    counBorders.innerHTML = "";
+    if (!borders || borders.length === 0) {
+        counBorders.textContent = "None";
+        return;
+    }
 
-try {
-    const codes = borders.join(",");
-    const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${codes}`);
-    const data = await res.json();
+    try {
+        const codes = borders.join(",");
+        const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${codes}`);
+        const data = await res.json();
 
 
- data.forEach(borderCountry => {
-      const btn = document.createElement("button");
-      btn.textContent = borderCountry.name.common;
+        data.forEach(borderCountry => {
+            const btn = document.createElement("button");
+            btn.textContent = borderCountry.name.common;
 
-      // click → navigate to that country
-      btn.addEventListener("click", () => {
-        window.location.href = `/REST-countires-app/countryDetails.html?name=${borderCountry.name.common}`;
-      });
-      counBorders.appendChild(btn);
-    });
+            // click → navigate to that country
+            btn.addEventListener("click", () => {
+                window.location.href = `/REST-countires-app/countryDetails.html?name=${borderCountry.name.common}`;
+            });
+            counBorders.appendChild(btn);
+        });
 
-  } catch (error) {
-    console.error("Error fetching border countries:", error);
-  }
+    } catch (error) {
+        console.error("Error fetching border countries:", error);
+    }
 }
 
 // run
