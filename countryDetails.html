@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Details</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script defer src="./script/script.js"></script>
+            <script defer src="./script/main.js"></script>
+            <script defer src="./script/countryDetails.js"></script>
+</head>
+
+<body>
+    <div class="topBar">
+        <div class="searchBox">
+            <img src="./img/searchicon.svg" class="icon" />
+            <input type="text" placeholder="Search for a country.." />
+        </div>
+        <div class="filter">
+            <select id="region" name="region">
+                <option value="" selected disabled>Filter by Region</option>
+                <option value="Africa">Africa</option>
+                <option value="America">America</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="Oceania">Oceania</option>
+                <option value="United States of America">USA</option>
+            </select>
+        </div>
+    </div>
+    <div class="backButton">
+        <button class="backButton">← Back </button>
+    </div>
+    <!-- Here I am starting the details page content-->
+    <main class="detailsContainer">
+        <section class="containerDetails">
+            <div class="dcountryFlag">
+                <img id="flag" src"" alt="Country Flag">
+            </div>
+
+            <div class="detailsInfo">
+                <h1 id="countryNamne">Country Name</h1>
+                <div class="detailsGrid">
+                    <div>
+                        <p><strong>Native Name:</strong> <span id="nativeName"></span></p>
+                        <p><strong>Population:</strong> <span id="population"></span></p>
+                        <p><strong>Region:</strong> <span id="region"></span></p>
+                        <p><strong>Sub Region:</strong> <span id="subregion"></span></p>
+                        <p><strong>Capital:</strong> <span id="capital"></span></p>
+                    </div>
+                            <div>
+                                <p><strong>Top Level Domain:</strong> <span id="tld"></span></p>
+                                <p><strong>Currencies:</strong> <span id="currencies"></span></p>
+                                <p><strong>Languages:</strong> <span id="languages"></span></p>
+                            </div>
+                        </div>
+                        <div class="borderSection">
+                            <strong>Border Countries:</strong>
+                            <div class="borders" id="borders">
+                                    <!-- Buttons will be added here -->
+                            </div>
+
+
+                    </div>
+
+        </section>
+    </main>
+
+</body>
+
+</html>

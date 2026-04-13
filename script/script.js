@@ -67,6 +67,12 @@ function createCountryCard(country) {
     card.appendChild(flagDiv);
     card.appendChild(info);
 
+    
+
+    card,addEventListener("click", () =>{
+        const name = country.name.common;
+        window.location.href = `countryDetails.html?name=${name}`;
+    });
     grid.appendChild(card);
 
 }
