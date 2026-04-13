@@ -7,6 +7,7 @@ if (!countryName) {
 }
 
 const singleURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+//const singleURL = `https://restcountries.com/v3.1/alpha/${countryCode}`;
 
 const counFlag = document.getElementById("flag");
 const counName = document.getElementById("countryName");

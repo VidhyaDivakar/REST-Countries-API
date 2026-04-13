@@ -1,5 +1,8 @@
 console.log("JS Loaded");
 
+let allCountries = [];
+const searchInput = document.querySelector(".searchBox input");
+const regionFilter = document.getElementById("region");
 
 const apiURL = "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags"; // storing the API endpoint as a const variable
 
@@ -13,14 +16,38 @@ async function fetchAllCountries() {
         }
         const countries = await response.json();
         console.log("API data received:", countries);
-        grid.innerHTML = "";
-        countries.forEach(country => {
-            createCountryCard(country);
+        allCountries = countries;
 
+         function applyFilters() {
+            const searchValue = searchInput.value.toLowerCase();
+            const regionValue = regionFilter.value;
+
+            let filtered = allCountries;
+
+            if (searchValue) {
+                filtered = filtered.filter(country =>
+                    country.name.common.toLowerCase().includes(searchValue)
+                );
+            }
+             if (regionValue) {
+                filtered = filtered.filter(country =>
+                    country.region === regionValue
+                );
+            }   
+     
+        grid.innerHTML = "";
+        filtered.forEach(country => {
+            createCountryCard(country);
         });
         // const country = countries[0]; code for checking single country fetch
         // createCountryCard(country);
-    } catch (error) {
+    } 
+   applyFilters();
+       
+        searchInput.addEventListener("input", applyFilters);
+        regionFilter.addEventListener("change", applyFilters);
+
+} catch (error) {
         console.error("Error fetching countries: ", error);
     }
 }
@@ -71,8 +98,10 @@ function createCountryCard(country) {
 
     card.addEventListener("click", () => {
         const name = country.name.common;
+        //const code = country.cca3;
         console.log("CLICKED:", name);
         window.location.href = `./REST-countires-app/countryDetails.html?name=${encodeURIComponent(name)}`;
+       // window.location.href = `countryDetails.html?code=${code}`;
         console.log("Clicked country:", country.name.common);
     });
     grid.appendChild(card);
