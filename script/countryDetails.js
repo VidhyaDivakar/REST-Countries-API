@@ -102,7 +102,7 @@ try {
 
       // click → navigate to that country
       btn.addEventListener("click", () => {
-        window.location.href = `countryDetails.html?name=${borderCountry.name.common}`;
+        window.location.href = `./countryDetails.html?name=${borderCountry.name.common}`;
       });
       counBorders.appendChild(btn);
     });
