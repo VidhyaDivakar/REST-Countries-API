@@ -12,8 +12,9 @@
 }
 .siteHeader,
 .topBar,
-.container
-.containerDetails {
+.container,
+.containerDetails
+ {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
@@ -201,20 +202,17 @@ body.dark .country-card {
 }
 
 .back-btn {
-  padding: 8px 40px;
-  background-color: rgb(189, 175, 175);
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  font-size: 14px;
-  cursor: pointer;
-  margin: 10px;
-  margin-bottom: 30px;
-}
+  display: block;          
+  width: fit-content;     
+  margin: 20px 0;
+   padding: 10px 20px;       
+
+ }
 
 .containerDetails {
-  margin:30ox;
+  margin:30px;
   display: flex;
+  
   gap: 50px;
   align-items: flex-start;
 }

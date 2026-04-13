@@ -7,6 +7,8 @@ const regionFilter = document.getElementById("region");
 const apiURL = "https://restcountries.com/v3.1/all?fields=name,population,region,capital,flags"; // storing the API endpoint as a const variable
 
 const grid = document.querySelector(".countries-grid");
+
+// function to fetch all countries
 async function fetchAllCountries() {
     try {
         console.log("Fetching data:");
@@ -51,6 +53,8 @@ async function fetchAllCountries() {
         console.error("Error fetching countries: ", error);
     }
 }
+
+// function to create country card
 function createCountryCard(country) {
     const name = country.name.common;
     const population = country.population;

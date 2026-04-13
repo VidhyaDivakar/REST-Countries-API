@@ -28,7 +28,7 @@ if (counBackBtn) {
         window.history.back();
     });
 }
-
+// function to fetch country details
 async function fetchCountryDetails() {
     try {
         const response = await fetch(singleURL);
@@ -83,7 +83,7 @@ function renderCountry(country) {
 
     renderBorders(country.borders);
 }
-
+// function to render border countries
 async function renderBorders(borders) {
     counBorders.innerHTML = "";
     if (!borders || borders.length === 0) {
