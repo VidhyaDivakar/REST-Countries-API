@@ -75,3 +75,35 @@ function renderCountry(country) {
 
     renderBorders(country.counBorders);
 }
+
+async function renderBorders(counBorders) {
+  counBordersContainer.innerHTML = "";
+if (!counBorders || counBorders.lenght === 0) {
+    counBordersContainer.textContent = "None";
+    return;
+}
+
+try {
+    const codes = counBorders.join(",");
+    const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${codes}`);
+    const data = await res.json();
+
+
+ data.forEach(borderCountry => {
+      const btn = document.createElement("button");
+      btn.textContent = borderCountry.name.common;
+
+      // click → navigate to that country
+      btn.addEventListener("click", () => {
+        window.location.href = `countryDetails.html?name=${borderCountry.name.common}`;
+      });
+      bordersContainer.appendChild(btn);
+    });
+
+  } catch (error) {
+    console.error("Error fetching border countries:", error);
+  }
+}
+
+// run
+fetchCountryDetails();
