@@ -14,16 +14,21 @@ This project is built using HTML, CSS, and Vanilla JavaScript. Data is fetched u
 
 #### Screenshots
 
+##### Desktop Main Page
+
 ![Desktop Home Page](./img/desktopHomelight.jpg)
 
-![Desktop Details Page](./img/desktopdetailspagedark.jpg)
+##### Desktop Details Page Dark Mode
+
+![Details Page Dark](./img/detailspagedark.jpg)
+
+##### Mobile Home Page
 
 ![1776088487784](image/README/1776088487784.png)
 
 [
 ](desktopdetailspage.jpeg)
 
-Country Details Page
 
 #### Project Features
 
