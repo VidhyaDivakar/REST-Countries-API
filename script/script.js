@@ -72,7 +72,7 @@ function createCountryCard(country) {
     card.addEventListener("click", () => {
         const name = country.name.common;
         console.log("CLICKED:", name);
-        window.location.href = `countryDetails.html?name=${encodeURIComponent(name)}`;
+        window.location.href = `./countryDetails.html?name=${encodeURIComponent(name)}`;
         console.log("Clicked country:", country.name.common);
     });
     grid.appendChild(card);
