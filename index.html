@@ -24,22 +24,27 @@
 <body>
     <div class="topBar">
         <div class="searchBox">
-            <img src="./img/searchicon.svg" class="icon" />
-            <input type="text" placeholder="Search for a country.." />
+            <label for="searchInput" class="visually-hidden">Search for a country</label>
+            <img src="./img/searchicon.svg" class="icon" alt="" />
+            <input id="searchInput" type="text" placeholder="Search for a country..."
+                aria-label="Search for a country" />
         </div>
         <div class="filter">
+            <label for="region" class="visually-hidden">Filter by region</label>
             <select id="region" name="region">
                 <option value="" selected disabled>Filter by Region</option>
+                <option value="">All Regions</option>
                 <option value="Africa">Africa</option>
                 <option value="Americas">America</option>
                 <option value="Asia">Asia</option>
                 <option value="Europe">Europe</option>
                 <option value="Oceania">Oceania</option>
             </select>
-        </div>0
+        </div>
     </div>
     <!-- working with country grids-->
     <main class="container">
+        <p id="resultsCount" aria-live="polite"></p> <!-- to discribe the result to users-->
         <section class="countries-grid">
         </section>
     </main>

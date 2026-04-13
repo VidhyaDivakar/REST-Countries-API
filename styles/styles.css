@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .siteHeader {
   display: flex;
   justify-content: space-between;
@@ -31,7 +35,9 @@ i {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
@@ -76,16 +82,29 @@ i {
   overflow: hidden;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 body {
   background: hsl(0, 0%, 99%);
   color: black;
-  transition: 0.3s
-    /* smooth transition from state to another */
+  transition: 0.3s;
+  overflow-x: hidden;
+  /* smooth transition from state to another */
 }
 
 body.dark {
   background-color: black;
-  color: white;
+  color: whitesmoke;
 }
 
 .container {
@@ -94,11 +113,12 @@ body.dark {
   margin: 0 auto;
 }
 
+
 .countries-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  
+  gap: 60px;
+
 }
 
 .country-card {
@@ -107,7 +127,47 @@ body.dark {
   overflow: hidden;
   /* not to go outside of the container */
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
- 
+
+}
+
+.country-card:hover {
+  transform: scale(1.03);
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+/* adding focus for keyboard users
+.country-card:focus {
+  outline: 3px solid #3b82f6;
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #3b82f6;
+} */
+
+button:hover {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+/* Adding Media Queries for Tablet */
+@media (max-width: 1024px) {
+  .countries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Adding Media Queries for mobile */
+@media (max-width: 600px) {
+  .countries-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.dark .country-card {
+  background-color: #2b3945;
+  color: white;
 }
 
 .flag img {
@@ -129,4 +189,29 @@ body.dark {
 .country-info p {
   font-size: 14px;
   margin: 5px 0;
+}
+
+.back-btn {
+  padding: 8px 40px;
+  background-color: rgb(189, 175, 175);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  font-size: 14px;
+  cursor: pointer;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+
+.containerDetails {
+  margin:30ox;
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .containerDetails {
+    flex-direction: column;
+  }
 }
