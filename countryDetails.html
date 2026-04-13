@@ -1,33 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<header class="siteHeader">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Country Details</title>
+    <h2> Where in the world?</h2>
+    <div class="darkMode" id="toggleDark">
+        <i class="fa-regular fa-moon" id=toggleIcon></i>
+        <span id="toggleText">Dark Mode</span>
+    </div>
+
     <link rel="stylesheet" href="./styles/styles.css">
-   
+    
+            <link rel="stylesheet" href="./styles/styles.css">
+            <link href="https://fonts.google.com/specimen/Nunito+Sans" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
     <script defer src="./script/countryDetails.js"></script>
-</head>
+    <script defer src="./script/main.js"></script>
+</header>
 
 <body>
-    <div class="topBar">
-        <div class="searchBox">
-            <img src="./img/searchicon.svg" class="icon" />
-            <input type="text" placeholder="Search for a country.." />
-        </div>
-        <div class="filter">
-            <select id="region" name="region">
-                <option value="" selected disabled>Filter by Region</option>
-                <option value="Africa">Africa</option>
-                <option value="America">America</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="Oceania">Oceania</option>
-                <option value="United States of America">USA</option>
-            </select>
-        </div>
-    </div>
+
     <div class="backButton">
         <button class="back-btn">← Back </button>
     </div>

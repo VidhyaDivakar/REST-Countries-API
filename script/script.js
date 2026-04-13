@@ -18,7 +18,7 @@ async function fetchAllCountries() {
         console.log("API data received:", countries);
         allCountries = countries;
 
-         function applyFilters() {
+        function applyFilters() {
             const searchValue = searchInput.value.toLowerCase();
             const regionValue = regionFilter.value;
 
@@ -29,25 +29,25 @@ async function fetchAllCountries() {
                     country.name.common.toLowerCase().includes(searchValue)
                 );
             }
-             if (regionValue) {
+            if (regionValue) {
                 filtered = filtered.filter(country =>
                     country.region === regionValue
                 );
-            }   
-     
-        grid.innerHTML = "";
-        filtered.forEach(country => {
-            createCountryCard(country);
-        });
-        // const country = countries[0]; code for checking single country fetch
-        // createCountryCard(country);
-    } 
-   applyFilters();
-       
+            }
+
+            grid.innerHTML = "";
+            filtered.forEach(country => {
+                createCountryCard(country);
+            });
+            // const country = countries[0]; code for checking single country fetch
+            // createCountryCard(country);
+        }
+        applyFilters();
+
         searchInput.addEventListener("input", applyFilters);
         regionFilter.addEventListener("change", applyFilters);
 
-} catch (error) {
+    } catch (error) {
         console.error("Error fetching countries: ", error);
     }
 }
@@ -100,8 +100,8 @@ function createCountryCard(country) {
         const name = country.name.common;
         //const code = country.cca3;
         console.log("CLICKED:", name);
-        window.location.href = `./REST-countires-app/countryDetails.html?name=${encodeURIComponent(name)}`;
-       // window.location.href = `countryDetails.html?code=${code}`;
+        window.location.href = `/countryDetails.html?name=${encodeURIComponent(name)}`;
+        // window.location.href = `countryDetails.html?code=${code}`;
         console.log("Clicked country:", country.name.common);
     });
     grid.appendChild(card);
