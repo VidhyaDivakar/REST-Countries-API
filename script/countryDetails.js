@@ -1,8 +1,12 @@
-
-const singleURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
-
 const params = new URLSearchParams(window.location.search);
 const countryName = params.get("name");
+
+if (!countryName) {
+    console.error("No country name found in URL");
+      throw new Error("Country name is required");
+}
+
+const singleURL = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
 
 const counFlag = document.getElementById("flag");
 const counName = document.getElementById("countryName");
@@ -15,12 +19,14 @@ const counTld = document.getElementById("tld");
 const councurrencies = document.getElementById("currencies");
 const counLanguages = document.getElementById("languages");
 const counBorders = document.getElementById("borders");
-const counBackBtn = document.querySelector(".backButton");
+const counBackBtn = document.querySelector(".back-btn");
 
 
+if(counBackBtn){
 counBackBtn.addEventListener("click", () => {
     window.history.back();
 });
+}
 
 async function fetchCountryDetails() {
     try {
@@ -41,24 +47,25 @@ async function fetchCountryDetails() {
 // function to render country
 function renderCountry(country) {
     counFlag.src = country.flags.png;
+    counFlag.alt = `${country.name.common} flag`;
     counName.textContent = country.name.common;
 
-    const NativeNames = country.name.counNativeName;
+    const NativeNames = country.name.nativeName;
     if (NativeNames) {
         const firstNative = Object.values(NativeNames)[0].common;
         counNativeName.textContent = firstNative;
     } else {
         counNativeName.textContent = "N/A";
     }
-    counPopulation.textContent = country.populationtoLocaleString();
-    counRegion.textContent = country.counRegion;
-    counSubregion.textContent = country.counSubregion || "N/A";
-    counCapital.textContent = country.counCapital ? country.counCapital[0] : "N/A";
+    counPopulation.textContent = country.population.toLocaleString();
+    counRegion.textContent = country.region;
+    counSubregion.textContent = country.subregion || "N/A";
+    counCapital.textContent = country.capital ? country.capital[0] : "N/A";
 
-    counTld.textContent = country.counTld ? country.counTld.join(", ") : "N/A";
+    counTld.textContent = country.tld ? country.tld.join(", ") : "N/A";
 
     if (country.councurrencies) {
-        const currencies = Object.values(country.councurrencies)
+        const currencies = Object.values(country.currencies)
             .map(c => c.name)
             .join(", ");
         councurrencies.textContent = currencies;
@@ -66,25 +73,25 @@ function renderCountry(country) {
         councurrencies.textContent = "N/A";
     }
 
-    if (country.counLanguages) {
-        const languages = Object.values(country.counLanguages).join(", ");
+    if (country.languages) {
+        const languages = Object.values(country.languages).join(", ");
         counLanguages.textContent = languages;
     } else {
         counLanguages.textContent = "N/A";
     }
 
-    renderBorders(country.counBorders);
+    renderBorders(country.Borders);
 }
 
-async function renderBorders(counBorders) {
-  counBordersContainer.innerHTML = "";
-if (!counBorders || counBorders.lenght === 0) {
-    counBordersContainer.textContent = "None";
+async function renderBorders(borders) {
+  counBorders.innerHTML = "";
+if (!borders || borders.length === 0) {
+    counBorders.textContent = "None";
     return;
 }
 
 try {
-    const codes = counBorders.join(",");
+    const codes = borders.join(",");
     const res = await fetch(`https://restcountries.com/v3.1/alpha?codes=${codes}`);
     const data = await res.json();
 
@@ -97,7 +104,7 @@ try {
       btn.addEventListener("click", () => {
         window.location.href = `countryDetails.html?name=${borderCountry.name.common}`;
       });
-      bordersContainer.appendChild(btn);
+      counBorders.appendChild(btn);
     });
 
   } catch (error) {
