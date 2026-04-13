@@ -7,7 +7,7 @@ const countryName = params.get("name");
 const counFlag = document.getElementById("flag");
 const counName = document.getElementById("countryName");
 const counNativeName = document.getElementById("nativeName");
-const counPpopulation = document.getElementById("population");
+const counPopulation = document.getElementById("population");
 const counRegion = document.getElementById("region");
 const counSubregion = document.getElementById("subregion");
 const counCapital = document.getElementById("capital");
@@ -19,15 +19,14 @@ const counBackBtn = document.querySelector(".backButton");
 
 
 counBackBtn.addEventListener("click", () => {
-  window.history.back();
+    window.history.back();
 });
 
 async function fetchCountryDetails() {
     try {
         const response = await fetch(singleURL);
 
-        if(!response.ok) 
-        {
+        if (!response.ok) {
             throw new Error(`HTTP Error: ${response.status}`);
         }
 
@@ -35,8 +34,44 @@ async function fetchCountryDetails() {
         const country = data[0];
 
         renderCountry(country);
-            } catch (error) {
-                console.error("Error fetching country details:", error);
-            }
+    } catch (error) {
+        console.error("Error fetching country details:", error);
     }
+}
+// function to render country
+function renderCountry(country) {
+    counFlag.src = country.flags.png;
+    counName.textContent = country.name.common;
+
+    const NativeNames = country.name.counNativeName;
+    if (NativeNames) {
+        const firstNative = Object.values(NativeNames)[0].common;
+        counNativeName.textContent = firstNative;
+    } else {
+        counNativeName.textContent = "N/A";
+    }
+    counPopulation.textContent = country.populationtoLocaleString();
+    counRegion.textContent = country.counRegion;
+    counSubregion.textContent = country.counSubregion || "N/A";
+    counCapital.textContent = country.counCapital ? country.counCapital[0] : "N/A";
+
+    counTld.textContent = country.counTld ? country.counTld.join(", ") : "N/A";
+
+    if (country.councurrencies) {
+        const currencies = Object.values(country.councurrencies)
+            .map(c => c.name)
+            .join(", ");
+        councurrencies.textContent = currencies;
+    } else {
+        councurrencies.textContent = "N/A";
+    }
+
+    if (country.counLanguages) {
+        const languages = Object.values(country.counLanguages).join(", ");
+        counLanguages.textContent = languages;
+    } else {
+        counLanguages.textContent = "N/A";
+    }
+
+    renderBorders(country.counBorders);
 }
