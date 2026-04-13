@@ -74,7 +74,7 @@ function createCountryCard(country) {
         this.src = 'https://via.placeholder.com/320x240?text=Flag+Not+Available';
         this.alt = 'Flag not available';
     };
-    
+
     flagDiv.appendChild(flagImg);
 
     const info = document.createElement("div");
@@ -106,7 +106,7 @@ function createCountryCard(country) {
         const name = country.name.common;
         //const code = country.cca3;
         console.log("CLICKED:", name);
-        window.location.href = `/countryDetails.html?name=${encodeURIComponent(name)}`;
+        window.location.href = `countryDetails.html?name=${encodeURIComponent(name)}`;
         // window.location.href = `countryDetails.html?code=${code}`;
         console.log("Clicked country:", country.name.common);
     });
